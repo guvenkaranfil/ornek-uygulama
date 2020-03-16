@@ -15,16 +15,16 @@ import Title from "../components/Title";
 // themes
 import { CommonStyles } from "../themes";
 
-export default class Login extends Component {
+export default class Register extends Component {
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={[CommonStyles.container, { paddingHorizontal: 30 }]}>
-          <Header navigation={this.props.navigation} showBackButton={false} />
+          <Header navigation={this.props.navigation} showBackButton={true} />
           <Title
-            title={"Merhaba\nTekrar hoş geldin!"}
+            title={"Üye ol!"}
             content={
-              "Eğer daha önceden Essenjet’e üye olduysanız, giriş yaparak alışverişe devam edebilirsiniz."
+              "Essenjet’e üye olarak size özel kampanyalardan faydalanabilir, güvenli alışverişin keyfini çıkarabilirsiniz."
             }
           />
           <View style={{ marginTop: 46 }}>
@@ -36,20 +36,20 @@ export default class Login extends Component {
           </View>
           <TouchableOpacity
             style={CommonStyles.fullButton}
-            onPress={() => alert("'giriş' butonuna basıldı.")}
+            onPress={() => alert("'üye ol' butonuna basıldı.")}
           >
-            <Text style={CommonStyles.fullButtonText}>Giriş</Text>
+            <Text style={CommonStyles.fullButtonText}>Üye Ol</Text>
           </TouchableOpacity>
 
           <View style={styles.footerContainer}>
             <Text style={styles.footerText}>
               Bir hesabınız yok mu?
               <Text
-                onPress={() => this.props.navigation.navigate("register")}
+                onPress={() => this.props.navigation.navigate("login")}
                 style={{ fontWeight: "bold" }}
               >
                 {" "}
-                Üye olun!
+                Giriş Yap!
               </Text>
             </Text>
           </View>
