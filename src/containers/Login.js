@@ -16,6 +16,13 @@ import Title from "../components/Title";
 import { CommonStyles } from "../themes";
 
 export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: ""
+    };
+  }
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
@@ -29,14 +36,19 @@ export default class Login extends Component {
           />
           <View style={{ marginTop: 46 }}>
             <StyledInput
+              onChangeText={text => this.setState({ email: text })}
               placeholder="E-Posta Adresiniz"
               keyboardType="email-address"
             />
-            <StyledInput placeholder="Şifreniz" secureTextEntry />
+            <StyledInput
+              onChangeText={text => this.setState({ password: text })}
+              placeholder="Şifreniz"
+              secureTextEntry
+            />
           </View>
           <TouchableOpacity
             style={CommonStyles.fullButton}
-            onPress={() => alert("'giriş' butonuna basıldı.")}
+            onPress={() => alert(JSON.stringify(this.state))}
           >
             <Text style={CommonStyles.fullButtonText}>Giriş</Text>
           </TouchableOpacity>
